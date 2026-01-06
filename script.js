@@ -28,3 +28,20 @@ var elonMusk = {
   wiki: "https://en.wikipedia.org/wiki/Elon_Musk"
 };
 
+// ==============================
+// Profile 3: Your Own Object
+// ==============================
+var hero = {
+  first: "Tony",
+  middle: "",
+  last: "Stark",
+  age: 45,
+  college: ["MIT"],
+  occupation: "Inventor",
+  skills: "Engineering, AI",
+  hometown: "Long Island, NY",
+  awards: "Avengers Hero",
+  img: "https://upload.wikimedia.org/wikipedia/en/0/0c/Iron_Man_Infobox.jpg",
+  wiki: "https://en.wikipedia.org/wiki/Tony_Stark"
+};
+
