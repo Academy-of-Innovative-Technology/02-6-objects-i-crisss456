@@ -1,6 +1,4 @@
-// ==============================
-// Profile 1: Existing Object
-// ==============================
+
 var theranos = {
   first: "Elizabeth",
   last: "Holmes",
@@ -11,9 +9,7 @@ var theranos = {
   wiki: "https://en.wikipedia.org/wiki/Elizabeth_Holmes"
 };
 
-// ==============================
-// Profile 2: New Object (Elon Musk)
-// ==============================
+
 var elonMusk = {
   first: "Elon",
   middle: "Reeve",
@@ -28,9 +24,7 @@ var elonMusk = {
   wiki: "https://en.wikipedia.org/wiki/Elon_Musk"
 };
 
-// ==============================
-// Profile 3: Your Own Object
-// ==============================
+
 var hero = {
   first: "Tony",
   middle: "",
@@ -45,3 +39,51 @@ var hero = {
   wiki: "https://en.wikipedia.org/wiki/Tony_Stark"
 };
 
+
+var profiles = [theranos, elonMusk, hero];
+
+
+var staffContainer = document.getElementById("staff-container");
+var currentYear = new Date().getFullYear();
+
+profiles.forEach(function (person) {
+  var birthYear = currentYear - person.age;
+
+  var educationHTML = "";
+  person.college.forEach(function (school, index) {
+    educationHTML += `<div>${index + 1}. ${school}</div>`;
+  });
+
+  var extraInfo = "";
+  if (person.occupation) {
+    extraInfo += `<p class="small">Occupation: ${person.occupation}</p>`;
+    extraInfo += `<p class="small">Skills: ${person.skills}</p>`;
+    extraInfo += `<p class="small">Hometown: ${person.hometown}</p>`;
+    extraInfo += `<p class="small">Awards: ${person.awards}</p>`;
+  }
+
+  staffContainer.innerHTML += `
+    <article class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100 shadow-sm text-center">
+        <img src="${person.img}" class="card-img-top" alt="Profile Image" />
+
+        <div class="card-body">
+          <h5 class="card-title">${person.last}, ${person.first}</h5>
+          <p class="card-text text-muted">Age: ${person.age}</p>
+          <p class="small">Year Born: ${birthYear}</p>
+
+          <p class="small fw-bold">Education</p>
+          ${educationHTML}
+
+          ${extraInfo}
+        </div>
+
+        <div class="card-footer bg-white">
+          <a href="${person.wiki}" target="_blank" class="btn btn-outline-primary btn-sm">
+            View Profile
+          </a>
+        </div>
+      </div>
+    </article>
+  `;
+});
